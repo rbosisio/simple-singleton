@@ -1,4 +1,3 @@
-
 class Super {
     constructor(){
         this._instance
@@ -16,9 +15,7 @@ class Super {
                 return self._instance || new this(...args);
             }
         }
-
     }
-
 }
 
-module.exports = Super;
+module.exports = { getClass: () => new Super().Singleton };
