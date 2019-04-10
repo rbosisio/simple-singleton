@@ -1,21 +1,18 @@
-class Super {
-    constructor(){
-        this._instances = {}
-    }
-    
-    get Singleton() {
-        const self = this;
-        return class Singleton {
-            constructor() {
-                if (self._instances[this.constructor.name]) throw new Error();
-                self._instances[this.constructor.name] = this;
-            }
-        
-            static getInstance(...args) {
-                return self._instances[this.name] || new this(...args);
-            }
-        }
-    }
-}
 
-module.exports = new Super().Singleton;
+module.exports = (_Class, opts = {}) => {
+    const _instances = {};
+    return class Singleton extends _Class {
+        constructor(...args) {
+            super(...args);
+            if (_instances[_Class.name]) {
+                if (opts.errorOnNew) throw new Error();
+                return _instances[_Class.name];
+            }
+            _instances[_Class.name] = Object.setPrototypeOf(this, _Class.prototype);
+        }
+    
+        static getInstance(...args) {
+            return _instances[this.name] || new this(...args);
+        }
+    };
+};
