@@ -1,6 +1,6 @@
 {
   "name": "simple-singleton",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "This module provides a function to make your classes singleton.",
   "main": "src/index.js",
   "scripts": {
@@ -18,9 +18,9 @@
   "author": "Rodrigo Bosisio",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rbosisio/colossus-singleton/issues"
+    "url": "https://github.com/rbosisio/simple-singleton/issues"
   },
-  "homepage": "https://github.com/rbosisio/colossus-singleton#readme",
+  "homepage": "https://github.com/rbosisio/simple-singleton#readme",
   "devDependencies": {
     "jest": "^24.7.1"
   }
